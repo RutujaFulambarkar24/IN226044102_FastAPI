@@ -120,6 +120,7 @@ def doctors_summary():
         "specialization_count": specialization_count
     }
 
+
 @app.get("/doctors/filter")
 def filter_doctors(
     specialization: str = Query(None),
