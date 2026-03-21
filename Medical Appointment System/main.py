@@ -155,25 +155,6 @@ def filter_doctors_logic(specialization, max_fee, min_experience, is_available):
         result = [d for d in result if d["is_available"] == is_available]
     return result
 
-@app.get("/doctors/filter")
-def filter_doctors(
-    specialization: str = Query(None),
-    max_fee: int = Query(None),
-    min_experience: int = Query(None),
-    is_available: bool = Query(None)
-):
-    filtered = filter_doctors_logic(
-        specialization,
-        max_fee,
-        min_experience,
-        is_available
-    )
-
-    return {
-        "total": len(filtered),
-        "doctors": filtered
-    }
-
 
 @app.get("/doctors/search")
 def search_doctors(keyword: str):
